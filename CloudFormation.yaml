@@ -31,3 +31,10 @@ Resources:
 # Internet Gateway allows communication between our VPC and the internet
   InternetGateway:
     Type: AWS::EC2::InternetGateway
+
+# then this Internet Gateway is attached to our VPC
+  VPCGatewayAttachment:
+    Type: AWS::EC2::VPCGatewayAttachment
+    Properties:
+      VpcId: !Ref VPC
+      InternetGatewayId: !Ref InternetGateway
